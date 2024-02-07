@@ -1,5 +1,5 @@
 import catalog from "./catalog.json";
-import { Song as Track } from "./song";
+import { Track as Track } from "./track";
 
 export const getAlbums = () =>
   catalog.music.reduce((acc: Record<string, Track[]>, track) => {
@@ -14,3 +14,5 @@ export const getAlbumTracks = (album: string) => {
   const albums = getAlbums();
   return albums[album];
 };
+
+export const getAllTracks = () => catalog.music;
