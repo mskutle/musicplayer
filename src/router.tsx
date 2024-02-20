@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import AlbumPage from "./AlbumPage";
 import App from "./App";
 import { albumLoader } from "./album-loader";
@@ -13,6 +13,15 @@ export const router = createBrowserRouter([
         Component: AlbumPage,
         loader: albumLoader,
       },
+      {
+        path: "*",
+        index: true,
+        loader: () => redirect("/album/Wake Up"),
+      },
     ],
+  },
+  {
+    path: "*",
+    loader: () => redirect("/album/Wake Up"),
   },
 ]);
